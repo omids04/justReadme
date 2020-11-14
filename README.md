@@ -1,4 +1,5 @@
 
+//just a simple contract to explain. not secure for production
 contract Contract {
    
    mapping(address => uint) balances;
@@ -21,7 +22,7 @@ contract Contract {
    }
    // now if persan B wants to buy ether from person A he make a payment using his credit card
    // after payment payment completed, app automatically calls this function to transfer ether to person B account
-   // assumption is that dapp's private key is secure in dapp 
+   // assumption is that dapp's private key is kept secure in dapp 
    function transfer(address _from, address _to, uint _value) public onlyApp{
        require(balances[_from] >= _value);
        balances[_from] -= _value;
