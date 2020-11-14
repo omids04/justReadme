@@ -1,5 +1,6 @@
 
 //just a simple contract to explain. not secure for production
+```
 contract Contract {
    
    mapping(address => uint) balances;
@@ -44,9 +45,6 @@ contract Contract {
    // a certain value
     function withrawOwner(uint _value) public payable onlyOwner{
        msg.sender.transfer(_value);
-   }
-   
-   
-   
-   
+   }   
 }
+```
