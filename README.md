@@ -22,7 +22,7 @@ contract Contract {
    }
    // now if persan B wants to buy ether from person A he make a payment using his credit card
    // after payment payment completed, app automatically calls this function to transfer ether to person B account
-   // assumption is that dapp's private key is kept secure in dapp 
+   // assumption is that app's private key is kept secure in app 
    function transfer(address _from, address _to, uint _value) public onlyApp{
        require(balances[_from] >= _value);
        balances[_from] -= _value;
