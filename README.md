@@ -16,6 +16,11 @@ contract Contract {
        _;
    }
    
+    modifier onlyOwner{
+       require(msg.sender == app);
+       _;
+   }
+   
    //if person A wants to sell his ethers, he sends his ethers to this contract using deposit function
    function deposit() public payable{
        balances[msg.sender] += msg.value;
@@ -34,5 +39,14 @@ contract Contract {
        balances[msg.sender] -= _value;
        msg.sender.transfer(_value);
    }
+   
+   //using this function and the Fallback function owner can keep the balance in the contract at 
+   // a certain value
+    function withrawOwner(uint _value) public payable onlyOwner{
+       msg.sender.transfer(_value);
+   }
+   
+   
+   
    
 }
